@@ -1,21 +1,17 @@
-<%@ page import="com.francisco.gerenciador.servlet.Empresa" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 Lista de empresas: <br />
+
 <ul>
-    <%
-        List<Empresa> lista = (List<Empresa>) request.getAttribute("empresas");
-        for (Empresa empresa : lista) {
-    %>
-        <li><%= empresa.getNome() %></li>
-    <%
-        }
-    %>
+    <c:forEach items="${empresas}" var="empresa">
+        <li>${empresa.nome}</li>
+    </c:forEach>
 </ul>
 </body>
 </html>
