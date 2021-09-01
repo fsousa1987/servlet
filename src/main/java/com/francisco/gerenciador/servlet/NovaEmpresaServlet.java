@@ -1,6 +1,5 @@
 package com.francisco.gerenciador.servlet;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,9 +35,13 @@ public class NovaEmpresaServlet extends HttpServlet {
         Banco banco = new Banco();
         banco.adiciona(empresa);
 
-        // chamar o JSP
-        RequestDispatcher rd = req.getRequestDispatcher("/listaEmpresas");
         req.setAttribute("empresa", empresa.getNome());
-        rd.forward(req, resp);
+
+        resp.sendRedirect("listaEmpresas");
+
+        // chamar o JSP
+//        RequestDispatcher rd = req.getRequestDispatcher("/listaEmpresas");
+//        req.setAttribute("empresa", empresa.getNome());
+//        rd.forward(req, resp);
     }
 }
