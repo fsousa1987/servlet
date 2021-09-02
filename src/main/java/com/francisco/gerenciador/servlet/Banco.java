@@ -33,4 +33,13 @@ public class Banco {
     public void removeEmpresa(Integer id) {
         lista.removeIf(emp -> emp.getId().equals(id));
     }
+
+    public Empresa buscaEmpresaPelaId(Integer id) {
+        for (Empresa empresa : lista) {
+            if (empresa.getId().equals(id)) {
+                return empresa;
+            }
+        }
+        return null;
+    }
 }
