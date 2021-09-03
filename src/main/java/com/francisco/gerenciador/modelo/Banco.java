@@ -1,4 +1,4 @@
-package com.francisco.gerenciador.servlet;
+package com.francisco.gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.List;

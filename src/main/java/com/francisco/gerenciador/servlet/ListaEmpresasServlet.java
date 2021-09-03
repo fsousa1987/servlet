@@ -1,5 +1,8 @@
 package com.francisco.gerenciador.servlet;
 
+import com.francisco.gerenciador.modelo.Banco;
+import com.francisco.gerenciador.modelo.Empresa;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
