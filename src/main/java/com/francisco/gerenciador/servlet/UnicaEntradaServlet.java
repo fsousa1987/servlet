@@ -1,6 +1,6 @@
 package com.francisco.gerenciador.servlet;
 
-import com.francisco.gerenciador.acao.ListaEmpresas;
+import com.francisco.gerenciador.acao.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,10 +19,20 @@ public class UnicaEntradaServlet extends HttpServlet {
             acao.executa(req, resp);
         }
         else if (paramAcao.equals("RemoveEmpresa")) {
-            System.out.println("removendo empresa");
+            RemoveEmpresa acao = new RemoveEmpresa();
+            acao.executa(req, resp);
         }
         else if (paramAcao.equals("MostraEmpresa")) {
-            System.out.println("mostrando dados da empresa");
+            MostraEmpresa acao = new MostraEmpresa();
+            acao.executa(req, resp);
+        }
+        else if (paramAcao.equals("AlteraEmpresa")) {
+            AlteraEmpresa acao = new AlteraEmpresa();
+            acao.executa(req, resp);
+        }
+        else if (paramAcao.equals("NovaEmpresa")) {
+            NovaEmpresa acao = new NovaEmpresa();
+            acao.executa(req, resp);
         }
     }
 }
