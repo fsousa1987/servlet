@@ -22,6 +22,6 @@ public class MostraEmpresa {
 
         req.setAttribute("empresa", empresa);
 
-        return "forward:/formAlteraEmpresa.jsp";
+        return "forward:formAlteraEmpresa.jsp";
     }
 }

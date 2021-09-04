@@ -44,12 +44,17 @@ public class UnicaEntradaServlet extends HttpServlet {
                 nome = acao.executa(req);
                 break;
             }
+            case "FormNovaEmpresa": {
+                FormNovaEmpresa acao = new FormNovaEmpresa();
+                nome = acao.executa();
+                break;
+            }
         }
 
         assert nome != null;
         String[] tipoEEndereco = nome.split(":");
         if (tipoEEndereco[0].equals("forward")) {
-            RequestDispatcher rd = req.getRequestDispatcher(tipoEEndereco[1]);
+            RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco[1]);
             rd.forward(req, resp);
         }
         else {
