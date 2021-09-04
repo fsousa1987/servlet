@@ -31,17 +31,17 @@ public class UnicaEntradaServlet extends HttpServlet {
             }
             case "MostraEmpresa": {
                 MostraEmpresa acao = new MostraEmpresa();
-                acao.executa(req, resp);
+                nome = acao.executa(req);
                 break;
             }
             case "AlteraEmpresa": {
                 AlteraEmpresa acao = new AlteraEmpresa();
-                acao.executa(req, resp);
+                nome = acao.executa(req);
                 break;
             }
             case "NovaEmpresa": {
                 NovaEmpresa acao = new NovaEmpresa();
-                acao.executa(req, resp);
+                nome = acao.executa(req);
                 break;
             }
         }

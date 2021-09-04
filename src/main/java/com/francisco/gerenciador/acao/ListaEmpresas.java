@@ -16,6 +16,6 @@ public class ListaEmpresas {
 
         req.setAttribute("empresas", lista);
 
-        return "forward:listaEmpresas.jsp";
+        return "forward:/listaEmpresas.jsp";
     }
 }

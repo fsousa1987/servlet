@@ -5,15 +5,14 @@ import com.francisco.gerenciador.modelo.Empresa;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NovaEmpresa {
 
-    public void executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @SuppressWarnings("SameReturnValue")
+    public String executa(HttpServletRequest req) throws ServletException {
         System.out.println("Cadastrando nova empresa");
 
         String nomeEmpresa = req.getParameter("nome");
@@ -36,6 +35,6 @@ public class NovaEmpresa {
 
         req.setAttribute("empresa", empresa.getNome());
 
-        resp.sendRedirect("entrada?acao=ListaEmpresas");
+        return "redirect:entrada?acao=ListaEmpresas";
     }
 }
