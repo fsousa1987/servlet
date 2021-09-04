@@ -1,9 +1,11 @@
 package com.francisco.gerenciador.acao;
 
-public class FormNovaEmpresa {
+import javax.servlet.http.HttpServletRequest;
 
-    @SuppressWarnings("SameReturnValue")
-    public String executa() {
+public class FormNovaEmpresa implements Acao {
+
+    @Override
+    public String executa(HttpServletRequest req) {
         return "forward:formNovaEmpresa.jsp";
     }
 }

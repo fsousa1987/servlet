@@ -5,9 +5,9 @@ import com.francisco.gerenciador.modelo.Empresa;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class MostraEmpresa {
+public class MostraEmpresa implements Acao {
 
-    @SuppressWarnings("SameReturnValue")
+    @Override
     public String executa(HttpServletRequest req) {
         System.out.println("mostrando dados da empresa");
 

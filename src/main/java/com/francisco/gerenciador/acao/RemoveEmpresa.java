@@ -4,9 +4,9 @@ import com.francisco.gerenciador.modelo.Banco;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class RemoveEmpresa {
+public class RemoveEmpresa implements Acao {
 
-    @SuppressWarnings("SameReturnValue")
+    @Override
     public String executa(HttpServletRequest req) {
         System.out.println("ação removendo empresa");
 

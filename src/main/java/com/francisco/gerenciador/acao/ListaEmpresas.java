@@ -6,8 +6,9 @@ import com.francisco.gerenciador.modelo.Empresa;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class ListaEmpresas {
+public class ListaEmpresas implements Acao {
 
+    @Override
     public String executa(HttpServletRequest req) {
         System.out.println("listando empresas");
 

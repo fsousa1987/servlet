@@ -9,9 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements Acao {
 
-    @SuppressWarnings("SameReturnValue")
+    @Override
     public String executa(HttpServletRequest req) throws ServletException {
         System.out.println("Cadastrando nova empresa");
 

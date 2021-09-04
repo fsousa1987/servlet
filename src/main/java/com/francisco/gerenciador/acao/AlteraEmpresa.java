@@ -9,9 +9,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AlteraEmpresa {
+public class AlteraEmpresa implements Acao {
 
-    @SuppressWarnings("SameReturnValue")
+    @Override
     public String executa(HttpServletRequest req) throws ServletException {
 
         String nomeEmpresa = req.getParameter("nome");
