@@ -2,9 +2,12 @@ package com.francisco.gerenciador.servlet;
 
 import com.francisco.gerenciador.acao.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "UnicaEntradaServlet", value = "/entrada")
@@ -14,25 +17,43 @@ public class UnicaEntradaServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String paramAcao = req.getParameter("acao");
 
-        if (paramAcao.equals("ListaEmpresas")) {
-            ListaEmpresas acao = new ListaEmpresas();
-            acao.executa(req, resp);
+        String nome = null;
+        switch (paramAcao) {
+            case "ListaEmpresas": {
+                ListaEmpresas acao = new ListaEmpresas();
+                nome = acao.executa(req);
+                break;
+            }
+            case "RemoveEmpresa": {
+                RemoveEmpresa acao = new RemoveEmpresa();
+                nome = acao.executa(req);
+                break;
+            }
+            case "MostraEmpresa": {
+                MostraEmpresa acao = new MostraEmpresa();
+                acao.executa(req, resp);
+                break;
+            }
+            case "AlteraEmpresa": {
+                AlteraEmpresa acao = new AlteraEmpresa();
+                acao.executa(req, resp);
+                break;
+            }
+            case "NovaEmpresa": {
+                NovaEmpresa acao = new NovaEmpresa();
+                acao.executa(req, resp);
+                break;
+            }
         }
-        else if (paramAcao.equals("RemoveEmpresa")) {
-            RemoveEmpresa acao = new RemoveEmpresa();
-            acao.executa(req, resp);
+
+        assert nome != null;
+        String[] tipoEEndereco = nome.split(":");
+        if (tipoEEndereco[0].equals("forward")) {
+            RequestDispatcher rd = req.getRequestDispatcher(tipoEEndereco[1]);
+            rd.forward(req, resp);
         }
-        else if (paramAcao.equals("MostraEmpresa")) {
-            MostraEmpresa acao = new MostraEmpresa();
-            acao.executa(req, resp);
-        }
-        else if (paramAcao.equals("AlteraEmpresa")) {
-            AlteraEmpresa acao = new AlteraEmpresa();
-            acao.executa(req, resp);
-        }
-        else if (paramAcao.equals("NovaEmpresa")) {
-            NovaEmpresa acao = new NovaEmpresa();
-            acao.executa(req, resp);
+        else {
+            resp.sendRedirect(tipoEEndereco[1]);
         }
     }
 }
