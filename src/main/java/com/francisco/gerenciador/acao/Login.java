@@ -1,5 +1,8 @@
 package com.francisco.gerenciador.acao;
 
+import com.francisco.gerenciador.modelo.Banco;
+import com.francisco.gerenciador.modelo.Usuario;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class Login implements Acao {
@@ -11,6 +14,15 @@ public class Login implements Acao {
 
         System.out.println("Logando " + login);
 
-        return "redirect:entrada?acao=ListaEmpresas";
+        Banco banco = new Banco();
+        Usuario usuario = banco.existeUsuario(login, senha);
+
+        if (usuario != null) {
+            System.out.println("Usuário existe");
+            return "redirect:entrada?acao=ListaEmpresas";
+        }
+        else {
+            return "redirect:entrada?acao=LoginForm";
+        }
     }
 }
