@@ -9,7 +9,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<c:import url="logout-parcial.jsp" />
 <form action="${linkEntradaServlet}" method="post">
     <label>
         Nome:
