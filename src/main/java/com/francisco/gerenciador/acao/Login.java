@@ -4,6 +4,7 @@ import com.francisco.gerenciador.modelo.Banco;
 import com.francisco.gerenciador.modelo.Usuario;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Login implements Acao {
 
@@ -19,6 +20,8 @@ public class Login implements Acao {
 
         if (usuario != null) {
             System.out.println("Usuário existe");
+            HttpSession sessao = req.getSession();
+            sessao.setAttribute("usuarioLogado", usuario);
             return "redirect:entrada?acao=ListaEmpresas";
         }
         else {
