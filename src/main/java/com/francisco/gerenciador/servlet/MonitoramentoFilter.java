@@ -1,10 +1,8 @@
 package com.francisco.gerenciador.servlet;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebFilter(filterName = "MonitoramentoFilter", value = "/entrada")
 public class MonitoramentoFilter implements Filter {
 
     @Override

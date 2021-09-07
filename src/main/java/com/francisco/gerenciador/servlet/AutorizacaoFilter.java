@@ -1,13 +1,11 @@
 package com.francisco.gerenciador.servlet;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "AutorizacaoFilter", value = "/entrada")
 public class AutorizacaoFilter implements Filter {
 
     @Override
