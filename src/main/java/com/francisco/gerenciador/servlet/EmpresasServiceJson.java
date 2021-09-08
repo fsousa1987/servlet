@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "EmpresasService", value = "/empresas")
-public class EmpresasService extends HttpServlet {
+@WebServlet(name = "EmpresasServiceJson", value = "/empresas-json")
+public class EmpresasServiceJson extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
