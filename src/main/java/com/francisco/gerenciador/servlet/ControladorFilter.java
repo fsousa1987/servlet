@@ -11,6 +11,11 @@ import java.lang.reflect.InvocationTargetException;
 public class ControladorFilter implements Filter {
 
     @Override
+    public void init(FilterConfig filterConfig) {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
             throws ServletException, IOException {
 
@@ -39,5 +44,10 @@ public class ControladorFilter implements Filter {
         else {
             response.sendRedirect(tipoEEndereco[1]);
         }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

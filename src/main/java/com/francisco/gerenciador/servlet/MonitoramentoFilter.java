@@ -6,6 +6,11 @@ import java.io.IOException;
 public class MonitoramentoFilter implements Filter {
 
     @Override
+    public void init(FilterConfig filterConfig) {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws ServletException, IOException {
 
@@ -20,5 +25,10 @@ public class MonitoramentoFilter implements Filter {
 
         long depois = System.currentTimeMillis();
         System.out.println("Tempo de execução da ação " + acao + " -> " + (depois - antes));
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }
